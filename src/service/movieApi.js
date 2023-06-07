@@ -14,7 +14,23 @@ export const movieApi = createApi({
     getDetailMovies: builder.query({
       query: () => `/movie/popular?api_key=${APIKEY}`,
     }),
+    getTopRated: builder.query({
+      query: () => `/movie/top_rated?api_key=${APIKEY}`,
+    }),
+    getTrending: builder.query({
+      query: () => `/movie/popular?api_key=${APIKEY}`,
+    }),
+    getUpComing: builder.query({
+      query: () => `/movie/Upcoming?api_key=${APIKEY}`,
+    }),
   }),
 });
 
-export const { useGetMoviesQuery } = movieApi;
+export const {
+  useGetMoviesQuery,
+  useGetDetailMoviesQuery,
+  useGetPopularMoviesQuery,
+  useGetTopRatedQuery,
+  useGetTrendingQuery,
+  useGetUpComingQuery,
+} = movieApi;

@@ -5,6 +5,7 @@ const Hero = () => {
   return (
     <div className="w-full h-[100vh] text-white items-center">
       <div className="relative">
+        <div className="absolute w-full h-full bg-gradient-to-r from-black z-10"></div>
         <img
           className="w-full h-[20%]"
           src="https://assets.nflxext.com/ffe/siteui/vlv3/1ef84595-1fdb-4404-adac-15215ceeb3ae/61d29cb2-7944-4dc7-bcac-7298f9cfb431/ID-en-20220711-popsignuptwoweeks-perspective_alpha_website_small.jpg"
