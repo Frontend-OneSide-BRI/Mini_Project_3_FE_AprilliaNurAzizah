@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 const SearchBar = () => {
   const [keyword, setKeyword] = useState();
   const navigate = useNavigate();
-  console.log("🚀 ~ file: SearchBar.jsx:5 ~ SearchBar ~ keyword:", keyword);
 
   const handleChange = (event) => {
     setKeyword(event.target.value);

@@ -8,7 +8,8 @@ const ModalMovie = ({ isShow, onClose, data }) => {
     <Modal show={isShow} onClose={onClose}>
       <Modal.Header>
         {location.pathname.includes("home") ||
-        location.pathname.includes("movie")
+        location.pathname.includes("movie") ||
+        location.pathname.includes("search")
           ? data.title
           : data.original_name}
       </Modal.Header>

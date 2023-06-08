@@ -44,7 +44,8 @@ const Row = (props) => {
             />
             <h5 className="text-white">
               {location.pathname.includes("home") ||
-              location.pathname.includes("movie")
+              location.pathname.includes("movie") ||
+              location.pathname.includes("search")
                 ? item.title
                 : item.original_name}
             </h5>
