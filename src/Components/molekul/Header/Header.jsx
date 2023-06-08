@@ -37,23 +37,21 @@ const Header = () => {
           src={`https://image.tmdb.org/t/p/original/${movieImg}`}
           alt={`${movieTitle}`}
         />
-        <div className="absolute w-full top-[30%] p-4 md:p-8 text-left z-[100]">
-          <h1 className="text-2xl md:text-3xl font-bold">{`${movieTitle}`}</h1>
+        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 p-4 md:p-8 z-[100] text-left">
+          <h1 className="text-3xl md:text-4xl font-bold">{`${movieTitle}`}</h1>
           <div className="my-4">
             <ButtonPlay
               type="button"
-              addClassName=" bg-red-700 text-black rounded cursor-pointer text-white"
+              addClassName="bg-red-700 text-black rounded cursor-pointer text-white"
               title="Play"
-              style={{ position: "relative", zIndex: 100 }}
             />
             <ButtonPlay
               type="button"
-              addClassName=" rounded  bg-gray-300  ml-4 cursor-pointer"
+              addClassName="rounded bg-gray-300 ml-4 cursor-pointer"
               title="Watch"
-              style={{ position: "relative", zIndex: 100 }}
             />
           </div>
-          <p className="text-gray-400 text-sm">Released: {`${movieDate}`}</p>
+          <p className="text-white text-sm">Released: {`${movieDate}`}</p>
         </div>
       </div>
     </div>

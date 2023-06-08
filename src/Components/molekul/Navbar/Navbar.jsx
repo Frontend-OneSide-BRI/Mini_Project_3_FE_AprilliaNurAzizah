@@ -42,12 +42,11 @@ const Navbar = (props) => {
         )}
         {isLogout && (
           <div className="flex items-center space-x-2 md:space-x-10">
-            <ul className="hidden space-x-4 md:flex text-white cursor-pointer">
+            <ul className="hidden space-x-4 md:flex text-white cursor-pointer pr-4">
               <li className="headerLink">Home</li>
               <li className="headerLink">TV Shows</li>
               <li className="headerLink">Movies</li>
-              <li className="headerLink">New & Popular</li>
-              <li className="headerLink">My List</li>
+
             </ul>
             <Link to="/">
               <Button
