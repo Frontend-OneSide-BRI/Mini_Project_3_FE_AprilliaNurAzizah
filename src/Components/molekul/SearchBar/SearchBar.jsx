@@ -12,7 +12,7 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/search")
+    navigate("/search?keyword=" + keyword);
   };
 
   return (

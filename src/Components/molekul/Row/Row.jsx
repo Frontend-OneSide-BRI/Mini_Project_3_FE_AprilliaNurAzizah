@@ -3,8 +3,9 @@ import Modal from "../Modal/Modal";
 import { useLocation } from "react-router-dom";
 
 const Row = (props) => {
+    const keyword = props.keyword ?? ""
   const { title, fetchURL } = props;
-  const { data, isLoading, isError } = fetchURL("spider");
+  const { data, isLoading, isError } = fetchURL(keyword);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState([]);
   const [isShow, setIsShow] = useState(false);
@@ -21,7 +22,9 @@ const Row = (props) => {
     setIsShow(!isShow);
   };
 
+
   console.log(movies);
+
 
   return (
     <div className="bg-slate-950">

@@ -33,10 +33,11 @@ export const movieApi = createApi({
       query: () => `/movie/top_rated?api_key=${APIKEY}`,
     }),
     getTvTopRated: builder.query({
-      query: (param) => {
-        console.log("🚀 ~ file: movieAPI.js:41 ~ param:", param);
-        return `/tv/top_rated?api_key=${APIKEY}`;
-      },
+      query: () => `/tv/top_rated?api_key=${APIKEY}`,
+    }),
+    getMovieSearch: builder.query({
+      query: (param = "") =>
+        `/search/movie?query=${param}&include_adult=false&language=en-US&page=1&api_key=${APIKEY}`,
     }),
   }),
 });
@@ -54,4 +55,5 @@ export const {
   useGetMovieTopRatedQuery,
   useGetTvPopularQuery,
   useGetTvTopRatedQuery,
+  useGetMovieSearchQuery,
 } = movieApi;
