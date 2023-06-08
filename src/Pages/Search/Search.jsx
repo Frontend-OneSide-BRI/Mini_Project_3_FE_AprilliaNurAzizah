@@ -8,10 +8,20 @@ import { useSearchParams } from "react-router-dom";
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get("keyword");
+  const { data, loading } = useGetMovieSearchQuery(keyword);
+
   return (
-    <div className=" bg-slate-950">
+    <div className=" bg-slate-950 h-screen">
       <Navbar title3="Sign Out" isLogout={true} />
-      <Row fetchURL={useGetMovieSearchQuery} keyword={keyword} />
+      {loading ? (
+        <p>Loading...</p>
+      ) : data && data.results.length > 0 ? (
+        <Row fetchURL={useGetMovieSearchQuery} keyword={keyword} />
+      ) : (
+        <div className=" bg-gray-800 w-full h-full flex items-center justify-center">
+          <p className=" text-white ">Movie is not found</p>
+        </div>
+      )}
       <Footer />
     </div>
   );

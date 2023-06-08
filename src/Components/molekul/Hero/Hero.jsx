@@ -3,7 +3,7 @@ import Button from "../../atom/Button/Button";
 
 const Hero = () => {
   return (
-    <div className="w-full h-[100vh] text-white items-center">
+    <div className="w-full h-screen text-white items-center">
       <div className="relative">
         <div className="absolute w-full h-full bg-gradient-to-r from-black z-10"></div>
         <img
