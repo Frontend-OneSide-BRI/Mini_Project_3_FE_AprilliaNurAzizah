@@ -1,9 +1,5 @@
 # Mini Project 3 FE BRI Internship Bootcamp 
-
-### Aprillia Nur Azizah
-
-## Deploy
-
+By: Aprillia Nur Azizah 
 
 ## Feature
 - Login
