@@ -29,20 +29,20 @@ const Header = () => {
   }, [movies]);
 
   return (
-    <div className="w-full h-[550px] text-white relative">
+    <div className="w-full h-[250px] text-white relative">
       <div className="w-full h-full">
-        <div className="absolute w-full h-full bg-gradient-to-r from-black z-10"></div>
+        <div className="absolute w-full h-full bg-gradient-to-r from-gray-900 z-10"></div>
         <img
           className="w-full h-full object-cover"
           src={`https://image.tmdb.org/t/p/original/${movieImg}`}
           alt={`${movieTitle}`}
         />
-        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 p-4 md:p-8 z-[100] text-left">
-          <h1 className="text-3xl md:text-4xl font-bold">{`${movieTitle}`}</h1>
+        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 p-4 md:p-8 z-[100] text-left pl-5">
+          <h1 className="text-3xl md:text-4xl font-bold pb-4">{`${movieTitle}`}</h1>
           <div className="my-4">
             <ButtonPlay
               type="button"
-              addClassName="bg-red-700 text-black rounded cursor-pointer text-white"
+              addClassName="bg-red-700 text-black rounded cursor-pointer text-white cursor-pointer"
               title="Play"
             />
             <ButtonPlay

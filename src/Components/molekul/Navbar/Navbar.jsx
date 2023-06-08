@@ -43,10 +43,15 @@ const Navbar = (props) => {
         {isLogout && (
           <div className="flex items-center space-x-2 md:space-x-10">
             <ul className="hidden space-x-4 md:flex text-white cursor-pointer pr-4">
-              <li className="headerLink">Home</li>
-              <li className="headerLink">TV Shows</li>
-              <li className="headerLink">Movies</li>
-
+              <Link to="/home">
+                <li className="headerLink">Home</li>
+              </Link>
+              <Link to="/tvshow">
+                <li className="headerLink">TV Shows</li>
+              </Link>
+              <Link to="/movie">
+                <li className="headerLink">Movies</li>
+              </Link>
             </ul>
             <Link to="/">
               <Button

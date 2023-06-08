@@ -17,6 +17,24 @@ export const movieApi = createApi({
     getTopRated: builder.query({
       query: () => `/movie/top_rated?api_key=${APIKEY}`,
     }),
+    getTvShow: builder.query({
+      query: () => `/discover/tv?api_key=${APIKEY}`,
+    }),
+    getMovie: builder.query({
+      query: () => `/discover/movie?api_key=${APIKEY}`,
+    }),
+    getTvPopular: builder.query({
+      query: () => `/tv/popular?api_key=${APIKEY}`,
+    }),
+    getMoviePopular: builder.query({
+      query: () => `/movie/popular?api_key=${APIKEY}`,
+    }),
+    getMovieTopRated: builder.query({
+      query: () => `/movie/top_rated?api_key=${APIKEY}`,
+    }),
+    getTvTopRated: builder.query({
+      query: () => `/Tv/top_rated?api_key=${APIKEY}`,
+    }),
   }),
 });
 
@@ -27,4 +45,10 @@ export const {
   useGetTopRatedQuery,
   useGetTrendingQuery,
   useGetUpComingQuery,
+  useGetTvShowQuery,
+  useGetMovieQuery,
+  useGetMoviePopularQuery,
+  useGetMovieTopRatedQuery,
+  useGetTvPopularQuery,
+  useGetTvTopRatedQuery,
 } = movieApi;

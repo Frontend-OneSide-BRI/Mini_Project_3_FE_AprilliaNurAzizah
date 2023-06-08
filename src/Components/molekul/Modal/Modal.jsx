@@ -1,26 +1,22 @@
 import React from "react";
+import { Modal } from "flowbite-react";
+import { useLocation } from "react-router-dom";
 
-const Modal = ({ movie, onClose }) => {
+const ModalMovie = ({ isShow, onClose, data }) => {
+  const location = useLocation();
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
-      <div className="bg-white p-4 md:p-8 text-center">
+    <Modal show={isShow} onClose={onClose}>
+      <Modal.Header>
+        {location.pathname.includes("home") ? data.title : data.original_name}
+      </Modal.Header>
+      <Modal.Body>
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-          alt={movie.title}
-          className="w-full h-auto object-cover"
+          src={`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`}
+          alt={data.original_name}
         />
-        <h2 className="text-2xl font-bold mt-4">{movie.title}</h2>
-        <p>{movie.overview}</p>
-        <p>Popularity: {movie.popularity}</p>
-        <button
-          className=" bg-slate-800 text-white px-4 py-2 rounded mt-4"
-          onClick={onClose}
-        >
-          Close
-        </button>
-      </div>
-    </div>
+      </Modal.Body>
+    </Modal>
   );
 };
 
-export default Modal;
+export default ModalMovie;
