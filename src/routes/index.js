@@ -2,6 +2,7 @@ import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import Home from "../Pages/Home";
 import Movie from "../Pages/Movie";
+import Search from "../Pages/Search/Search";
 
 const routes = [
   {
@@ -34,6 +35,12 @@ const routes = [
   {
     element: <Movie />,
     path: "/movie",
+    access: "member",
+  },
+
+  {
+    element: <Search />,
+    path: "/search",
     access: "member",
   },
 ];

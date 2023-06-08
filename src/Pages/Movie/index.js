@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../Components/molekul/Navbar/Navbar";
 import Footer from "../../Components/molekul/Footer/Footer";
 import Header from "../../Components/molekul/Header/Header";
@@ -10,7 +10,7 @@ import {
 } from "../../service/movieApi";
 import Row from "../../Components/molekul/Row/Row";
 import { useLocation } from "react-router-dom";
-import Input from "../../Components/atom/Input/Input";
+import SearchBar from "../../Components/molekul/SearchBar/SearchBar";
 
 const Movie = () => {
   const location = useLocation();
@@ -46,7 +46,7 @@ const Movie = () => {
       <h1 className=" text-white mt-5 mb-3 text-2xl">
         Search your movie here!
       </h1>
-      <Input addClassName="rounded p-1 w-[20%]" type="text" />
+      <SearchBar />
       {rows.map((row, index) => (
         <Row
           key={index}

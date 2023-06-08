@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 
 const Row = (props) => {
   const { title, fetchURL } = props;
-  const { data, isLoading, isError } = fetchURL();
+  const { data, isLoading, isError } = fetchURL("spider");
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState([]);
   const [isShow, setIsShow] = useState(false);
@@ -21,9 +21,7 @@ const Row = (props) => {
     setIsShow(!isShow);
   };
 
-
   console.log(movies);
-
 
   return (
     <div className="bg-slate-950">
