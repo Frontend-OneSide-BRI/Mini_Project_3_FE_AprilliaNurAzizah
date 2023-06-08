@@ -1,6 +1,6 @@
-# Mini Project 3 BRI Internship Bootcamp 
+# Mini Project 3 FE BRI Internship Bootcamp 
 
-### Aprillia Nur Azizah - Front End 
+### Aprillia Nur Azizah
 
 ## Deploy
 
@@ -28,7 +28,7 @@
 ![4](https://github.com/Frontend-OneSide-BRI/Mini_Project_3_FE_AprilliaNurAzizah/assets/134372941/b9323002-d045-46ef-89cb-c7e09cbc7780)
 
 ## Detail Movie 
-
+![6](https://github.com/Frontend-OneSide-BRI/Mini_Project_3_FE_AprilliaNurAzizah/assets/134372941/cb5e0ea3-ad47-4501-8a3a-23d06840be50)
 
 ## Search Movie 
 
