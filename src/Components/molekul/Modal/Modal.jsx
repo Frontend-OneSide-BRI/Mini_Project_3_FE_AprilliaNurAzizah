@@ -13,7 +13,7 @@ const Modal = ({ movie, onClose }) => {
         <p>{movie.overview}</p>
         <p>Popularity: {movie.popularity}</p>
         <button
-          className="bg-red-700 text-white px-4 py-2 rounded mt-4"
+          className=" bg-slate-800 text-white px-4 py-2 rounded mt-4"
           onClick={onClose}
         >
           Close
