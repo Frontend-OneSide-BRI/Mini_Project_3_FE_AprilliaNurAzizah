@@ -33,7 +33,7 @@ export const movieApi = createApi({
       query: () => `/movie/top_rated?api_key=${APIKEY}`,
     }),
     getTvTopRated: builder.query({
-      query: () => `/Tv/top_rated?api_key=${APIKEY}`,
+      query: () => `/tv/top_rated?api_key=${APIKEY}`,
     }),
   }),
 });

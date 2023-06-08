@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect, useState } from "react";
 import Navbar from "../../Components/molekul/Navbar/Navbar";
 import Footer from "../../Components/molekul/Footer/Footer";
 import Header from "../../Components/molekul/Header/Header";
@@ -10,42 +10,51 @@ import {
 } from "../../service/movieApi";
 import Row from "../../Components/molekul/Row/Row";
 import { useLocation } from "react-router-dom";
+import Input from "../../Components/atom/Input/Input";
 
 const Movie = () => {
   const location = useLocation();
 
-  const row1 = useMemo(() => {
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    let newRows = [];
     if (
       location.pathname.includes("home") ||
       location.pathname.includes("movie")
     ) {
-      return { title: "Popular Movie", fetchURL: useGetPopularMoviesQuery };
+      newRows = [
+        { title: "Popular Movie", fetchURL: useGetPopularMoviesQuery },
+        { title: "Top Movie Rated", fetchURL: useGetMovieTopRatedQuery },
+      ];
     }
 
     if (location.pathname.includes("tvshow")) {
-      return { title: "Popular TV Show", fetchURL: useGetTvPopularQuery };
-    }
-  }, [location.pathname]);
-
-  const row2 = useMemo(() => {
-    if (
-      location.pathname.includes("home") ||
-      location.pathname.includes("movie")
-    ) {
-      return { title: "Top Movie Rated", fetchURL: useGetMovieTopRatedQuery };
+      newRows = [
+        { title: "Popular TV Show", fetchURL: useGetTvPopularQuery },
+        { title: "Top Rated TV Show", fetchURL: useGetTvTopRatedQuery },
+      ];
     }
 
-    if (location.pathname.includes("tvshow")) {
-      return { title: "Top Rated Tv Show", fetchURL: useGetTvTopRatedQuery };
-    }
+    setRows(newRows);
   }, [location.pathname]);
 
   return (
     <div className=" bg-slate-950">
       <Navbar title3="Sign Out" isLogout={true} />
       <Header />
-      <Row rowID="1" title={row1.title} fetchURL={row1.fetchURL} />
-      <Row rowID="2" title={row2.title} fetchURL={row2.fetchURL} />
+      <h1 className=" text-white mt-5 mb-3 text-2xl">
+        Search your movie here!
+      </h1>
+      <Input addClassName="rounded p-1 w-[20%]" type="text" />
+      {rows.map((row, index) => (
+        <Row
+          key={index}
+          rowID={index.toString()}
+          title={row.title}
+          fetchURL={row.fetchURL}
+        />
+      ))}
       <Footer />
     </div>
   );

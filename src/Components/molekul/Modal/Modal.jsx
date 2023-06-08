@@ -7,7 +7,10 @@ const ModalMovie = ({ isShow, onClose, data }) => {
   return (
     <Modal show={isShow} onClose={onClose}>
       <Modal.Header>
-        {location.pathname.includes("home") ? data.title : data.original_name}
+        {location.pathname.includes("home") ||
+        location.pathname.includes("movie")
+          ? data.title
+          : data.original_name}
       </Modal.Header>
       <Modal.Body>
         <img
