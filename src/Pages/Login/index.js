@@ -1,14 +1,32 @@
-import React, {useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, json, useNavigate } from "react-router-dom";
 import Form from "../../Components/molekul/Form/Form";
-
+import { credential } from "../../Const/AuthDummy";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const [payload, setPayload] = useState({ username: "", password: "" });
+  console.log("🚀 ~ file: index.js:12 ~ Login ~ payload:", payload);
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setPayload({ ...payload, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    if (
+      payload.username === credential.username &&
+      payload.password === credential.password
+    ) {
+      const data = JSON.stringify({ username: payload.username });
+      localStorage.setItem("credential", data);
+      navigate("/home");
+    } else {
+      alert("username atau password salah!");
+    }
+  };
 
   return (
     <div className="w-full h-screen">
@@ -22,7 +40,15 @@ const Login = () => {
         <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
           <div className="max-w-[320px] mx-auto py-16">
             <h1 className="text-3xl font-bold">Sign In</h1>
-            <Form className="w-full flex flex-col py-4" titleButton="Sign In" titleSpan="New to Netflix?" titleLink="Sign Up" path="/signup"/>
+            <Form
+              className="w-full flex flex-col py-4"
+              titleButton="Sign In"
+              titleSpan="New to Netflix?"
+              titleLink="Sign Up"
+              path="/signup"
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+            />
           </div>
         </div>
       </div>

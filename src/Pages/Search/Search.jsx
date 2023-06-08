@@ -8,7 +8,6 @@ import { useSearchParams } from "react-router-dom";
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get("keyword");
-  console.log("🚀 ~ file: Search.jsx:11 ~ Search ~ keyword:", keyword);
   return (
     <div className=" bg-slate-950">
       <Navbar title3="Sign Out" isLogout={true} />

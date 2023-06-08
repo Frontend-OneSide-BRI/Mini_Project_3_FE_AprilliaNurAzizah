@@ -4,20 +4,25 @@ import Button from "../../atom/Button/Button";
 import { Link } from "react-router-dom";
 
 const Form = (props) => {
-  const { className, titleButton, titleSpan, titleLink, path } = props;
+  const { className, titleButton, titleSpan, titleLink, path, onChange, onSubmit} =
+    props;
   return (
-    <form className={`${className}`}>
+    <form className={`${className}`} onSubmit={onSubmit}>
       <Input
-        type="email"
-        placeholder="Email"
-        autoComplete="email"
+        name="username"
+        type="text"
+        placeholder="Username"
+        autoComplete="username"
         addClassName=" p-3 my-2 bg-gray-700 rounded"
+        onChange={onChange}
       />
       <Input
+        name="password"
         type="password"
         placeholder="Password"
         autoComplete="current-password"
         addClassName=" p-3 my-2 bg-gray-700 rounded"
+        onChange={onChange}
       />
       <Button
         title={titleButton}

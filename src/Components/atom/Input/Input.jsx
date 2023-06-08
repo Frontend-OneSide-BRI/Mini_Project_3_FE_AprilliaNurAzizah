@@ -1,9 +1,10 @@
 import React from "react";
 
 const Input = (props) => {
-  const { type, onChange, placeHolder, addClassName ,autoComplete} = props;
+  const { type, onChange, placeHolder, addClassName ,autoComplete, name} = props;
   return (
     <input
+      name={name}
       onChange={onChange}
       className={`${addClassName }`}
       type={type}
