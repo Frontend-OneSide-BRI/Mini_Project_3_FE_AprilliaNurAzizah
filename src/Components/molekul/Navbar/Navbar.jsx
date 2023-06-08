@@ -1,6 +1,6 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import Button from "../../atom/Button/Button";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../atom/Input/Input";
 import { IoMdHand } from "react-icons/io";
 
@@ -13,6 +13,16 @@ const Navbar = (props) => {
     localStorage.removeItem("credential");
     navigate("/");
   };
+
+  const [showGreeting, setShowGreeting] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowGreeting(false);
+    }, 60000);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="flex items-center justify-between p-2 z-[100] w-full relative bg-gray-900">
       <Link to="/">
@@ -21,13 +31,17 @@ const Navbar = (props) => {
         </h1>
       </Link>
       {isLogout && (
-        <h2 className="text-white font-bold text-lg flex items-center">
-          Hi,{" "}
-          {localStorage.getItem("credential")
-            ? JSON.parse(localStorage.getItem("credential")).username
-            : ""}
-          <IoMdHand className="align-middle pt-2" />
-        </h2>
+        <div className="flex items-center justify-between space-x-2 md:space-x-10">
+          {showGreeting && (
+            <h2 className="text-white font-bold text-lg flex items-center">
+              Hi,{" "}
+              {localStorage.getItem("credential")
+                ? JSON.parse(localStorage.getItem("credential")).username
+                : ""}
+              <IoMdHand className="align-middle pt-2" />
+            </h2>
+          )}
+        </div>
       )}
       <div>
         {isLogin && (
