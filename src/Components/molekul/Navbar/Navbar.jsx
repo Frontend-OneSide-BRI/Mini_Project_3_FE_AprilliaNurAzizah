@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../atom/Button/Button";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Input from "../../atom/Input/Input";
-import { BsSearch } from "react-icons/bs";
+import { IoMdHand } from "react-icons/io";
 
 const Navbar = (props) => {
   const { title1, title2, title3, isLogin, isRegister, isSearch, isLogout } =
@@ -20,6 +20,15 @@ const Navbar = (props) => {
           AMOVIE
         </h1>
       </Link>
+      {isLogout && (
+        <h2 className="text-white font-bold text-lg flex items-center">
+          Hi,{" "}
+          {localStorage.getItem("credential")
+            ? JSON.parse(localStorage.getItem("credential")).username
+            : ""}
+          <IoMdHand className="align-middle pt-2" />
+        </h2>
+      )}
       <div>
         {isLogin && (
           <Link to="/login">
@@ -46,7 +55,7 @@ const Navbar = (props) => {
           </div>
         )}
         {isLogout && (
-          <div className="flex items-center space-x-2 md:space-x-10">
+          <div className="flex items-center justify-between space-x-2 md:space-x-10">
             <ul className="hidden space-x-4 md:flex text-white cursor-pointer pr-4">
               <Link to="/home">
                 <li className="headerLink">Home</li>

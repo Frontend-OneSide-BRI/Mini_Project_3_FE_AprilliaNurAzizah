@@ -7,7 +7,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [payload, setPayload] = useState({ username: "", password: "" });
-  console.log("🚀 ~ file: index.js:12 ~ Login ~ payload:", payload);
 
   const handleChange = (e) => {
     const name = e.target.name;
